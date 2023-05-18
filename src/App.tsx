@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
 import "./styles.css";
 import Head from "./components/Head";
-import { sortById, sortByIdent, sortByName } from "./Functions";
+import { sortById, sortByIdent, sortByName } from "./util/Functions";
 const colorIdents = [
   {
     ident: "un",
     props: {
-      color: "red"
-    }
+      color: "red",
+    },
   },
   {
     ident: "deux",
     props: {
-      color: "green"
-    }
+      color: "green",
+    },
   },
   {
     ident: "trois",
     props: {
-      color: "blue"
-    }
-  }
+      color: "blue",
+    },
+  },
 ];
 function getRandomInt(max: number) {
   return Math.floor(Math.random() * max);
@@ -36,9 +36,8 @@ type mainObject = {
 };
 export default function App() {
   const [data, setData] = useState<mainObject[]>();
-  const [displayedVersionOfData, setDisplayedVersionOfData] = useState<
-    mainObject[]
-  >();
+  const [displayedVersionOfData, setDisplayedVersionOfData] =
+    useState<mainObject[]>();
   const [filter, setFilter] = useState<string>("");
   const [idFilter, setIdFilter] = useState<boolean>(false);
   const [nameFilter, setNameFilter] = useState<boolean>(false);
@@ -63,7 +62,7 @@ export default function App() {
         arr.push({
           id: uid(),
           name: "string" + i,
-          ident: selector
+          ident: selector,
         });
       }
       return arr;
