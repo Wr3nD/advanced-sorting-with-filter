@@ -37,7 +37,7 @@ export const sortById = (data: mainObject[], filterSide: boolean) => {
       }
     });
   } else {
-    answer = data?.sort((a: mainObject, b: mainObject) => {
+    answer = [...data]?.sort((a: mainObject, b: mainObject) => {
       const aNum = getNumberFromId(a.id);
       const bNum = getNumberFromId(b.id);
 
@@ -87,7 +87,7 @@ export const sortByName = (data: mainObject[], filterSide: boolean) => {
       }
     });
   } else {
-    answer = data?.sort((a: mainObject, b: mainObject) => {
+    answer = [...data]?.sort((a: mainObject, b: mainObject) => {
       const aNum = getNumberFromString(a.name);
       const bNum = getNumberFromString(b.name);
 
