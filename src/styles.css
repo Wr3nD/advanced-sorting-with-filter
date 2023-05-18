@@ -1,0 +1,24 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.selected-cell {
+  background-color: yellow;
+}
+table {
+  margin-top: 1rem;
+  margin: auto;
+  padding: 1rem;
+}
+thead tr th {
+  background-color: gray;
+  cursor: pointer;
+}
+th {
+  border: 1px solid black;
+  padding: 1rem;
+}
+label {
+  display: flex;
+  justify-content: center;
+}
