@@ -44,13 +44,13 @@ export default function App() {
   const [identFilter, setIdentFilter] = useState<boolean>(false);
   const [selectedCells, setSelectedCells] = useState<string[]>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
-
+  console.log(displayedVersionOfData, nameFilter);
   const handleClick = (id: string) => {
     const isSelected = selectedCells.includes(id);
     if (isSelected) {
-      setSelectedCells(selectedCells.filter((cellId) => cellId !== id));
+      setSelectedCells(selectedCells.filter((cellId) => cellId !== id)); // get rid of color
     } else {
-      setSelectedCells([...selectedCells, id]);
+      setSelectedCells([...selectedCells, id]); // add color to array
     }
   };
 

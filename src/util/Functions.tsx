@@ -22,7 +22,7 @@ const getNumberFromString = (str: string): number | null => {
 export const sortById = (data: mainObject[], filterSide: boolean) => {
   let answer: mainObject[] = [];
   if (filterSide) {
-    answer = data?.sort((a: mainObject, b: mainObject) => {
+    answer = [...data]?.sort((a: mainObject, b: mainObject) => {
       const aNum = getNumberFromId(a.id);
       const bNum = getNumberFromId(b.id);
 
@@ -58,11 +58,11 @@ export const sortById = (data: mainObject[], filterSide: boolean) => {
 export const sortByIdent = (data: mainObject[], filterSide: boolean) => {
   let answer: mainObject[] = [];
   if (filterSide) {
-    answer = data?.sort((a: mainObject, b: mainObject) => {
+    answer = [...data]?.sort((a: mainObject, b: mainObject) => {
       return a.ident.localeCompare(b.ident); // Sort based on ident in ascending order
     });
   } else {
-    answer = data?.sort((a: mainObject, b: mainObject) => {
+    answer = [...data]?.sort((a: mainObject, b: mainObject) => {
       return b.ident.localeCompare(a.ident); // Sort based on ident in descending order
     });
   }
@@ -72,7 +72,7 @@ export const sortByIdent = (data: mainObject[], filterSide: boolean) => {
 export const sortByName = (data: mainObject[], filterSide: boolean) => {
   let answer: mainObject[] = [];
   if (filterSide) {
-    answer = data?.sort((a: mainObject, b: mainObject) => {
+    answer = [...data]?.sort((a: mainObject, b: mainObject) => {
       const aNum = getNumberFromString(a.name);
       const bNum = getNumberFromString(b.name);
 
