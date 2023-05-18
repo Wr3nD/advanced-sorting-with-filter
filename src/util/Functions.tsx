@@ -4,10 +4,15 @@ type mainObject = {
   ident: string;
 };
 
-export const sortById = (data: mainObject[], filterSide: boolean) => {
+export const sortById = (
+  data: mainObject[],
+  ascendingOrder: boolean,
+  filteredData: mainObject[]
+) => {
   let answer: mainObject[] = [];
-  answer = [...data]?.sort((a: mainObject, b: mainObject) => {
-    if (filterSide) {
+  let filteredArray = filteredData.length > 0 ? filteredData : data;
+  answer = [...filteredArray]?.sort((a: mainObject, b: mainObject) => {
+    if (ascendingOrder) {
       return a.id.localeCompare(b.id);
     } else {
       return b.id.localeCompare(a.id);
@@ -16,11 +21,15 @@ export const sortById = (data: mainObject[], filterSide: boolean) => {
   return answer;
 };
 
-export const sortByIdent = (data: mainObject[], filterSide: boolean) => {
+export const sortByIdent = (
+  data: mainObject[],
+  ascendingOrder: boolean,
+  filteredData: mainObject[]
+) => {
   let answer: mainObject[] = [];
-
-  answer = [...data]?.sort((a: mainObject, b: mainObject) => {
-    if (filterSide) {
+  let filteredArray = filteredData.length > 0 ? filteredData : data;
+  answer = [...filteredArray]?.sort((a: mainObject, b: mainObject) => {
+    if (ascendingOrder) {
       return a.ident.localeCompare(b.ident);
     } else {
       return b.ident.localeCompare(a.ident);
@@ -30,11 +39,15 @@ export const sortByIdent = (data: mainObject[], filterSide: boolean) => {
   return answer;
 };
 
-export const sortByName = (data: mainObject[], filterSide: boolean) => {
+export const sortByName = (
+  data: mainObject[],
+  ascendingOrder: boolean,
+  filteredData: mainObject[]
+) => {
   let answer: mainObject[] = [];
-
-  answer = [...data]?.sort((a: mainObject, b: mainObject) => {
-    if (filterSide) {
+  let filteredArray = filteredData.length > 0 ? filteredData : data;
+  answer = [...filteredArray]?.sort((a: mainObject, b: mainObject) => {
+    if (ascendingOrder) {
       return a.name.localeCompare(b.name, undefined, { numeric: true });
     } else {
       return b.name.localeCompare(a.name, undefined, { numeric: true });

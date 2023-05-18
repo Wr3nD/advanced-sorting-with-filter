@@ -43,6 +43,7 @@ export default function App() {
   const [nameFilter, setNameFilter] = useState<boolean>(false);
   const [identFilter, setIdentFilter] = useState<boolean>(false);
   const [selectedCells, setSelectedCells] = useState<string[]>([]);
+  const [filteredData, setFilteredData] = useState<mainObject[]>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
   console.log(displayedVersionOfData, nameFilter);
   const handleClick = (id: string) => {
@@ -75,7 +76,7 @@ export default function App() {
 
   useEffect(() => {
     if (data !== undefined) {
-      const sortedData = sortByName(data, nameFilter);
+      const sortedData = sortByName(data, nameFilter, filteredData);
 
       setDisplayedVersionOfData(sortedData);
     }
@@ -83,7 +84,7 @@ export default function App() {
 
   useEffect(() => {
     if (data !== undefined) {
-      const sortedData = sortByIdent(data, identFilter);
+      const sortedData = sortByIdent(data, identFilter, filteredData);
 
       setDisplayedVersionOfData(sortedData);
     }
@@ -91,7 +92,7 @@ export default function App() {
 
   useEffect(() => {
     if (data !== undefined) {
-      const sortedData = sortById(data, idFilter);
+      const sortedData = sortById(data, idFilter, filteredData);
 
       setDisplayedVersionOfData(sortedData);
     }
@@ -108,6 +109,7 @@ export default function App() {
           item.ident.includes(removeSpaces)
       );
       setDisplayedVersionOfData(filteredData);
+      setFilteredData(filteredData);
     }
   };
   if (isLoading) {
